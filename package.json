@@ -1,0 +1,44 @@
+{
+  "name": "preprocessor",
+  "version": "0.1.0",
+  "author": "admin",
+  "private": true,
+  "scripts": {
+    "serve": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js serve",
+    "build": "node --max_old_space_size=8192 node_modules/@vue/cli-service/bin/vue-cli-service.js build",
+    "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
+  },
+  "dependencies": {
+    "async-validator": "^3.5.1",
+    "axios": "^0.21.1",
+    "core-js": "^3.9.1",
+    "driver.js": "0.9.5",
+    "element-resize-detector": "^1.2.2",
+    "element-ui": "^2.15.0",
+    "js-cookie": "^2.2.1",
+    "less": "^4.1.1",
+    "less-loader": "^5.0.0",
+    "mockjs": "^1.1.0",
+    "nprogress": "^0.2.0",
+    "path-to-regexp": "2.4.0",
+    "qs": "^6.10.1",
+    "screenfull": "^4.2.0",
+    "svg-sprite-loader": "^4.1.3",
+    "three": "^0.128.0",
+    "vue": "^2.6.11",
+    "vue-i18n": "^7.3.2",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0",
+    "zx-verify": "^0.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "vue-template-compiler": "^2.6.11"
+  }
+}

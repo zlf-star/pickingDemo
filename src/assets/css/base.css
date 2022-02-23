@@ -1,0 +1,58 @@
+@import "./normalize.css";
+/* 公共样式表 */
+/*:root -> 获取根元素html -> 定义变量*/
+
+
+/* 设置字体 */
+body {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+  /* 设置body的最小宽度，作用是防止页面变小的时候不让子元素溢出 */
+  min-width: 1226px;
+}
+.clear-fix::after,
+.clearfix::before{
+  clear: both;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clear-fix {
+  zoom: 1;
+}
+/* 去除下划线 */
+a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+/* 隐藏 */
+.hid {
+  display: none;
+}
+/* 错误提示 */
+.error {
+  color: #ff5b5b;
+}
+.error::before {
+  content: "\f06a";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  margin-right: 3px;
+}
+/* 正确提示 */
+.success {
+  color: #33a853;
+}
+.success::before {
+  content: "\f058";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  margin-right: 3px;
+}
+
+
