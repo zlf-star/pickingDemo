@@ -15,7 +15,6 @@
           <span class="node-title" :class="{'no-icon':!data.icon}">{{ node.label }}</span>
         </span>
       </el-tree>
-      <el-button type="primary" class="sub-btn" style="padding:0">提交计算</el-button>
     </el-scrollbar>
     <!--鼠标右键点击出现页面-->
     <div v-show="menuVisibleFu">

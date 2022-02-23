@@ -111,6 +111,7 @@ const config={
   modelHighlightColor:0xffe600,//模型高亮颜色
   sideBarWidth:256,//侧边栏宽度
   navBarHeight:50,//顶部导航高度
+  hideSidebarWidth:54
 }
 //作为一个类导出
 module.exports = config

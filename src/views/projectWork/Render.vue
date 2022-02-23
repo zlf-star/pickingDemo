@@ -1,9 +1,6 @@
 <template>
   <div id="render-container">
     <div id="renderer">
-      <div id="grid">
-      <img id = "grid_bgimg" :src="imgSrc" width="100%" height="100%" alt="" />
-      </div>
     </div>
     <div id="inset"></div>
     <div id="selectBox"></div>
@@ -82,7 +79,6 @@ import RightSideBar from './RightSideBar.vue'
     name:'',
     data() {
       return {
-        imgSrc:require('../../assets/img/grid.png'),
         chooseItemDisplay: false,
 
         // 选择
@@ -355,7 +351,7 @@ import RightSideBar from './RightSideBar.vue'
         this.$options.camera = new Three.OrthographicCamera(this.$options.container.clientWidth/-2, this.$options.container.clientWidth/2, this.$options.container.clientHeight/2, this.$options.container.clientHeight/-2, 0.0001, 10);
 
         this.$options.scene = new Three.Scene();
-        // this.$options.scene.background = new Three.Color( 0xe0e0e0 );              //这个是给背景加上标尺后删除的背景色
+        this.$options.scene.background = new Three.Color( 0xe0e0e0 );              //这个是给背景加上标尺后删除的背景色
         this.$options.scene.add(this.$options.selectMeshGroup);
 
         this.$options.renderer = new Three.WebGLRenderer({antialias: true,alpha: true});
@@ -752,24 +748,6 @@ import RightSideBar from './RightSideBar.vue'
   z-index: 10000 ;
 }
 
-#grid {  
-    width:100%;
-    height:100%;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    z-index: -1;
-  }
-
-#grid_bgimg {
-  top: 0;
-  left: 0;
-  width:100%;
-  height:100%;
-  zoom: 1;
-  background-repeat: no-repeat;
-  background-size:100% 100%; 
-}
 
 #choose-item {
   position: absolute;

@@ -6,10 +6,12 @@
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2021-07-16 11:49:25
  */
-import {Quad, Tria, Tetra, Block, BlockFaceIndex, ReducedBlockFaceIndex, BlockDrawIndex, BlockDrawIndexARange, BlockReduDrawIndex, TetraFaceIndex, minDistance, QuadLineIndex, TriaLineIndex, modelHighlightColor, sideBarWidth, navBarHeight} from 'utils/config'
+import {Quad, Tria, Tetra, Block, BlockFaceIndex, ReducedBlockFaceIndex, BlockDrawIndex, BlockDrawIndexARange, BlockReduDrawIndex, TetraFaceIndex, minDistance, QuadLineIndex, TriaLineIndex, modelHighlightColor, sideBarWidth, navBarHeight,hideSidebarWidth} from 'utils/config'
 import {computeProjectVertex, boolBetweenAngle, minMax, arrayRange, createTypedArray} from 'utils/renderFunction'
 import AddRmSelection from 'utils/AddRmSelection'
 import * as Three from 'three'
+//filter.js
+import setting from "@/store/modules/setting";
 class SelectionData {
   constructor(renderCt, drawedBox, selectMeshG, control, octreeData, octreeSurfData, elements, nodes, camera, surfaceInfo, elemTypeArray) {
 
@@ -249,6 +251,9 @@ class SelectionData {
 
   // 基坐标选取单元
   pickElements3D(e) { 
+    const realSideWidth = setting.state.sidebar.opened ? sideBarWidth : hideSidebarWidth;        
+    
+
     if (e.button === 1) {
 
       // 中止选择
@@ -292,7 +297,6 @@ class SelectionData {
         default:
           break;
       }
-              
       // 首先确认e1，e2，e3
       switch (this.selectType) {
           
@@ -300,7 +304,7 @@ class SelectionData {
         case 1:
         case 2:
           // 计算点击位置归一化坐标
-          this.transformCoordinateSingle(this.renderCt.clientWidth, this.renderCt.clientHeight, sideBarWidth, navBarHeight);
+          this.transformCoordinateSingle(this.renderCt.clientWidth, this.renderCt.clientHeight, realSideWidth, navBarHeight);
 
           // 判断点击位置坐标
           this.baseData.PPInImit = this.pickedCoordInWeb.applyMatrix3(this.baseData.matrWebToImit);
@@ -329,8 +333,7 @@ class SelectionData {
         // 当前是框选
         case 3:
         case 4:  
-        
-          this.transformCoordinate(this.renderCt.clientWidth, this.renderCt.clientHeight, sideBarWidth, navBarHeight);
+          this.transformCoordinate(this.renderCt.clientWidth, this.renderCt.clientHeight, realSideWidth, navBarHeight);
 
           // 框的信息
           this.baseData.frameData = new Float64Array(6);
