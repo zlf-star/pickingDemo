@@ -14,6 +14,10 @@ npm run serve
 ```
 npm run build
 ```
+### 文件说明
+主要的渲染组件：src\views\projectWork\Render.vue
+读取文件以及构建八叉树：src\utils\readFile.js
+拾取交互：src\utils\selectionData.js
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
